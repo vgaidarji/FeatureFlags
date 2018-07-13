@@ -3,10 +3,11 @@ package com.vgaidarji.appconfig.config
 import com.vgaidarji.appconfig.feature.ConfigurableFeatures.SupportedFeatures
 import com.vgaidarji.appconfig.feature.Feature
 
-class InMemoryFeaturesConfig2: FeaturesConfig() {
+class Config1: FeaturesConfig() {
+
     override fun features(): List<Feature> {
         return listOf(
-            Feature(SupportedFeatures.BOTTOM_NAVIGATION.featureName, false)
+            Feature(SupportedFeatures.BOTTOM_NAVIGATION.featureName, true)
         )
     }
 }
