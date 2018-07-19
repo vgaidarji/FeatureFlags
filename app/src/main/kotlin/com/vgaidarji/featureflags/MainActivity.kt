@@ -12,8 +12,8 @@ import com.vgaidarji.appconfig.config.persistence.ConfigPersister
 import com.vgaidarji.appconfig.extension.bindView
 import com.vgaidarji.appconfig.ui.ConfigSelectedListener
 import com.vgaidarji.appconfig.ui.ConfigSelectionDialog
-import com.vgaidarji.featureflags.config.Config1
-import com.vgaidarji.featureflags.config.Config2
+import com.vgaidarji.featureflags.config.ConfigHasBottomNavigation
+import com.vgaidarji.featureflags.config.ConfigNoBottomNavigation
 import com.vgaidarji.featureflags.config.ConfigurableFeatures
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -56,8 +56,8 @@ class MainActivity : AppCompatActivity(), ConfigSelectedListener {
         buttonSwitchConfig.setOnClickListener {
             ConfigSelectionDialog
                     .newInstance(listOf(
-                        Config1(),
-                        Config2()
+                        ConfigHasBottomNavigation(),
+                        ConfigNoBottomNavigation()
                     ))
                     .show(supportFragmentManager, "config_selection_dialog")
         }
