@@ -1,4 +1,4 @@
-package com.vgaidarji.appconfig.feature
+package com.vgaidarji.featureflags.config
 
 import com.vgaidarji.appconfig.config.FeaturesConfig
 

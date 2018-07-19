@@ -1,7 +1,8 @@
-package com.vgaidarji.appconfig.config
+package com.vgaidarji.featureflags.config
 
-import com.vgaidarji.appconfig.feature.ConfigurableFeatures.SupportedFeatures
+import com.vgaidarji.appconfig.config.FeaturesConfig
 import com.vgaidarji.appconfig.feature.Feature
+import com.vgaidarji.featureflags.config.ConfigurableFeatures.SupportedFeatures
 
 class Config2: FeaturesConfig() {
     override fun features(): List<Feature> {

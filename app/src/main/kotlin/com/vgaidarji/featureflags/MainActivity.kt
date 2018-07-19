@@ -7,14 +7,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.jakewharton.processphoenix.ProcessPhoenix
-import com.vgaidarji.appconfig.config.Config1
-import com.vgaidarji.appconfig.config.Config2
 import com.vgaidarji.appconfig.config.FeaturesConfig
 import com.vgaidarji.appconfig.config.persistence.ConfigPersister
 import com.vgaidarji.appconfig.extension.bindView
-import com.vgaidarji.appconfig.feature.ConfigurableFeatures
 import com.vgaidarji.appconfig.ui.ConfigSelectedListener
 import com.vgaidarji.appconfig.ui.ConfigSelectionDialog
+import com.vgaidarji.featureflags.config.Config1
+import com.vgaidarji.featureflags.config.Config2
+import com.vgaidarji.featureflags.config.ConfigurableFeatures
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ConfigSelectedListener {
@@ -55,7 +55,10 @@ class MainActivity : AppCompatActivity(), ConfigSelectedListener {
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         buttonSwitchConfig.setOnClickListener {
             ConfigSelectionDialog
-                    .newInstance(listOf(Config1(), Config2()))
+                    .newInstance(listOf(
+                        Config1(),
+                        Config2()
+                    ))
                     .show(supportFragmentManager, "config_selection_dialog")
         }
     }
