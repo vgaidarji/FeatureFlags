@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import com.vgaidarji.appconfig.config.FeaturesConfig
+import com.vgaidarji.appconfig.feature.Feature
 
 private const val KEY_CONFIG = "config"
 
@@ -22,8 +23,14 @@ class ConfigPersister(private val context: Context) {
     }
 
     fun load(): FeaturesConfig {
-        return Class.forName(
+        return try {
+            Class.forName(
                 preferences.getString(KEY_CONFIG, "")
-        ).newInstance() as FeaturesConfig
+            ).newInstance() as FeaturesConfig
+        } catch (e: ClassNotFoundException) {
+            object : FeaturesConfig() {
+                override fun features() = emptyList<Feature>()
+            }
+        }
     }
 }
